@@ -1,5 +1,12 @@
 import React from "react"
+import Plans from "../components/Plans"
 
 export default function Home() {
-  return <div className="bg-gray-700 w-full m-auto h-64">Hello world!</div>
+  return (
+    <div>
+      <div className="mt-8">
+        <Plans />
+      </div>
+    </div>
+  )
 }

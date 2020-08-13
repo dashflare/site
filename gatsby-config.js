@@ -4,7 +4,21 @@
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
 
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   /* Your site config here */
-  plugins: [`gatsby-plugin-postcss`],
+  plugins: [
+    `gatsby-plugin-postcss`,
+    {
+      resolve: `gatsby-source-stripe`,
+      options: {
+        objects: ["Price", "Product"],
+        secretKey: process.env.STRIPE_SECRET_KEY,
+        downloadFiles: false,
+      },
+    },
+  ],
 }
